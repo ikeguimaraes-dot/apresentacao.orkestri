@@ -1,0 +1,59 @@
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    width: 210mm;
+    margin: 0;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .motion-ready .reveal,
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .progress {
+    display: none !important;
+  }
+
+  .topbar {
+    position: absolute;
+  }
+
+  section,
+  footer {
+    break-inside: avoid;
+  }
+
+  article,
+  figure,
+  .builder,
+  .brand-strip,
+  .essential-grid,
+  .base-prices {
+    break-inside: avoid;
+  }
+
+  .office-stage img,
+  .brand-strip img,
+  .mrcoin-art img {
+    visibility: visible !important;
+  }
+}
