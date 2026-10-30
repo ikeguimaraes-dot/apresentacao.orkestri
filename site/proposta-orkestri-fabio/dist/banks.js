@@ -121,10 +121,4 @@ if (bankSection && integratedBanks.length) {
   duplicate.removeAttribute('aria-label');
   group.parentElement.append(duplicate);
   bankSection.hidden = false;
-  const toggle = bankSection.querySelector('.bank-toggle');
-  toggle.addEventListener('click', () => {
-    const paused = bankSection.classList.toggle('is-paused');
-    toggle.setAttribute('aria-pressed', String(paused));
-    toggle.textContent = paused ? 'Retomar movimento' : 'Pausar movimento';
-  });
 }

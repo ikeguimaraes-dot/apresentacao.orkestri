@@ -10,12 +10,12 @@
 .hero-steps li > span { color: var(--orange); font-size: 12px; padding-top: 5px; }
 .hero-steps h2 { font-size: 18px; margin: 0 0 8px; letter-spacing: -.025em; }
 .hero-steps p { color: #a8b8ca; font-size: 14px; margin: 0; max-width: 290px; }
-.bank-integrations { background: #f4f6f9; color: var(--ink); padding: 28px 0 32px; overflow: hidden; }
+.bank-integrations { background: #f4f6f9; color: var(--ink); padding: 48px 0 24px; overflow: hidden; }
 .bank-integrations[hidden] { display: none; }
-.bank-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; max-width: 1320px; padding: 0 var(--gutter); margin: 0 auto 20px; }
-.bank-heading h2 { font: 500 14px 'DM Sans', sans-serif; margin: 0; }
-.bank-heading h2 span { margin-left: 16px; color: #637085; font-size: 12px; font-weight: 400; }
-.bank-toggle { font: inherit; font-size: 12px; border: 1px solid #cbd4df; border-radius: 20px; padding: 6px 14px; color: var(--ink); background: transparent; cursor: pointer; }
+.bank-heading { max-width: 1320px; padding: 0 var(--gutter); margin: 0 auto 28px; text-align: center; }
+.bank-heading h2 { font: 600 clamp(25px, 2.5vw, 36px)/1.3 Manrope, sans-serif; letter-spacing: -.035em; margin: 0; text-wrap: balance; }
+.bank-heading h2 span { color: #bd4d13; white-space: nowrap; }
+#desafio { padding-top: 44px; }
 .bank-window { overflow: hidden; mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent); }
 .bank-track { display: flex; width: max-content; animation: bank-scroll 80s linear infinite; }
 .bank-group { display: flex; align-items: center; list-style: none; margin: 0; padding: 0; }
@@ -25,7 +25,7 @@
 .bank-group .bank-brb img { background: #064b92; border-radius: 4px; padding: 3px; }
 .bank-group .bank-sofisa img { width: 100px; height: 36px; }
 .bank-group .bank-sofisa span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-.bank-integrations:hover .bank-track, .bank-integrations:focus-within .bank-track, .bank-integrations.is-paused .bank-track { animation-play-state: paused; }
+.bank-integrations:hover .bank-track { animation-play-state: paused; }
 @keyframes bank-scroll { to { transform: translateX(-50%); } }
 @media (max-width: 850px) {
   .hero { padding-top: 136px; gap: 36px; }
@@ -39,11 +39,13 @@
   .hero-steps p { max-width: none; }
   .hero .lead { font-size: 16px; }
   .bank-group li { flex-basis: 184px; width: 184px; }
-  .bank-heading h2 span { display: block; margin: 5px 0 0; }
+  .bank-integrations { padding-top: 36px; padding-bottom: 16px; }
+  .bank-heading { margin-bottom: 22px; }
+  #desafio { padding-top: 32px; }
 }
 @media (prefers-reduced-motion: reduce), print {
   .bank-track { animation: none; width: 100%; }
   .bank-window { mask-image: none; }
   .bank-group { flex-wrap: wrap; justify-content: center; width: 100%; }
-  .bank-group[aria-hidden="true"], .bank-group li[aria-hidden="true"], .bank-toggle { display: none; }
+  .bank-group[aria-hidden="true"], .bank-group li[aria-hidden="true"] { display: none; }
 }
