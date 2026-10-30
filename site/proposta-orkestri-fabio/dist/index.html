@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Orkestri | Inteligência para enxergar o todo</title>
   <meta name="description" content="Orkestri: inteligência artificial para conectar dados, encontrar desvios e apoiar decisões de gestão.">
-  <link rel="canonical" href="https://www.orkestri.net/">
+  <link rel="canonical" href="https://orkestri.net/">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307130d'/%3E%3Cg stroke='%23ff641e' stroke-width='5' stroke-linecap='round'%3E%3Cpath d='M14 28v8M23 18v28M32 11v42M41 18v28M50 28v8'/%3E%3C/g%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="mrcoin.css">
   <link rel="stylesheet" href="essentials.css">
   <link rel="stylesheet" href="legal.css">
+  <link rel="stylesheet" href="hero.css">
   <link rel="stylesheet" href="print.css" media="print">
 </head>
 <body>
@@ -31,17 +32,27 @@
     <section class="hero dark" id="inicio">
       <div class="hero-grid">
         <div class="hero-copy reveal">
-          <p class="eyebrow">INTELIGÊNCIA APLICADA À GESTÃO</p>
-          <h1>Sua gestão,<br>em outra <em>perspectiva.</em></h1>
-          <p class="lead">Um time de gestão com IA para conectar dados, encontrar desvios e apoiar suas decisões.</p>
+          <p class="eyebrow">SEUS NÚMEROS. SUAS RESPOSTAS.</p>
+          <h1>Cadê o dinheiro<br>do meu <em>negócio?</em></h1>
+          <p class="lead">Conecte seus bancos, organize suas transações com IA e concilie os recebimentos bancários e de cartões de crédito. Entenda quanto entra, quanto sai e quanto sobra — e cruze esses números com vendas e estoque para descobrir onde o dinheiro pode estar escapando.</p>
+          <div class="hero-actions"><a class="pill" href="#contato">Quero entender meus números <span aria-hidden="true">↗</span></a><a class="text-link" href="#primeiros-passos">Veja como funciona</a></div>
         </div>
         <div class="signal-map reveal" aria-label="Sinais conectados pela Orkestri">
           <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-          <span class="signal finance">Financeiro</span><span class="signal sales">Vendas</span><span class="signal stock">Estoque</span>
+          <span class="signal finance">Bancos e cartões</span><span class="signal sales">Vendas</span><span class="signal stock">Estoque</span>
           <div class="core"><img src="assets/logo-orkestri.png" alt=""></div>
         </div>
       </div>
-      <p class="section-index">01 — 08</p>
+      <ol class="hero-steps" id="primeiros-passos" aria-label="Como começar com a Orkestri">
+        <li><span>01</span><div><h2>Conecte seus bancos</h2><p>Reúna os dados financeiros da sua empresa em um só lugar.</p></div></li>
+        <li><span>02</span><div><h2>Classifique e concilie</h2><p>Organize as transações com IA e confira os recebimentos de bancos e cartões de crédito.</p></div></li>
+        <li><span>03</span><div><h2>Enxergue o resultado</h2><p>Acompanhe o DRE em D+1 e os desvios que precisam da sua atenção.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="bank-integrations" aria-labelledby="bank-title" hidden>
+      <div class="bank-heading"><h2 id="bank-title">Integrado com <span>22 instituições financeiras</span></h2><button class="bank-toggle" type="button" aria-pressed="false">Pausar movimento</button></div>
+      <div class="bank-window"><div class="bank-track"><ul class="bank-group" aria-label="Bancos integrados"></ul></div></div>
     </section>
 
     <section class="light" id="desafio">
@@ -82,7 +93,7 @@
 
     <section class="light integrated">
       <div class="section-head reveal"><p class="eyebrow">06 / UMA VISÃO INTEGRADA</p><h2>Todos os sistemas.<br><em>Uma só perspectiva.</em></h2></div>
-      <div class="capabilities reveal"><article><span>01</span><h3>Concilia</h3><p>Vendas, recebimentos e extratos, centavo a centavo.</p></article><article><span>02</span><h3>Audita</h3><p>Custos, margens, consumo, cortesias e descontos.</p></article><article><span>03</span><h3>Vigia</h3><p>Metas e indicadores. Fora do padrão vira alerta.</p></article><article><span>04</span><h3>Recomenda</h3><p>Próximos passos, com sua aprovação como etapa final.</p></article></div>
+      <div class="capabilities reveal"><article><span>01</span><h3>Concilia bancos e cartões</h3><p>Cruza vendas, extratos bancários e recebimentos de cartões de crédito para identificar diferenças.</p></article><article><span>02</span><h3>Audita</h3><p>Custos, margens, consumo, cortesias e descontos.</p></article><article><span>03</span><h3>Vigia</h3><p>Metas e indicadores. Fora do padrão vira alerta.</p></article><article><span>04</span><h3>Recomenda</h3><p>Próximos passos, com sua aprovação como etapa final.</p></article></div>
     </section>
 
     <section class="light essentials"><div class="section-head reveal"><p class="eyebrow">07 / O QUE MUDA NA ROTINA</p><h2>Clareza no dia seguinte.<br><em>Controle no detalhe.</em></h2></div><div class="essential-grid reveal"><article><span class="essential-mark">D+1</span><div><small>FINANCEIRO</small><h3>DRE em D+1</h3><p>Tenha a visão do resultado da operação no dia seguinte, com os dados organizados para agir enquanto ainda há tempo de corrigir a rota.</p></div></article><article><span class="essential-mark">%</span><div><small>PEOPLE & PERFORMANCE</small><h3>Gorjetômetro</h3><p>Calcula a gorjeta de forma simples, rápida e fácil, trazendo segurança para a divisão e clareza para toda a equipe.</p></div></article></div></section>
@@ -109,14 +120,15 @@
 
     <section class="light social-proof"><div class="section-head reveal"><p class="eyebrow">QUEM JÁ ESCOLHEU A ORKESTRI</p><h2>Mais de 100 empresas<br><em>já utilizam o Orkestri.</em></h2><p>Alguns de nossos clientes.</p></div><div class="brand-strip reveal"><img src="assets/marcas-sem-match-point.png" alt="Alguns dos clientes que já utilizam o Orkestri"></div></section>
 
-    <section class="dark contact" id="contato"><div class="contact-copy reveal"><p class="eyebrow">PRÓXIMO NÍVEL</p><h2>Pronto para elevar<br><em>o nível da sua gestão?</em></h2><p>Seu sistema diz quanto você gastou. A Orkestri diz quanto não precisava ter gasto.<br><br>Conectamos os dados que você já tem para encontrar o desvio antes que ele vire prejuízo.</p></div><div class="contacts reveal"><article><small>FALE COM A ORKESTRI</small><a href="mailto:ricardo@orkestri.net">ricardo@orkestri.net</a><a href="https://www.orkestri.net/" target="_blank" rel="noopener noreferrer">www.orkestri.net</a></article></div></section>
+    <section class="dark contact" id="contato"><div class="contact-copy reveal"><p class="eyebrow">PRÓXIMO NÍVEL</p><h2>Pronto para elevar<br><em>o nível da sua gestão?</em></h2><p>Seu sistema diz quanto você gastou. A Orkestri diz quanto não precisava ter gasto.<br><br>Conectamos os dados que você já tem para encontrar o desvio antes que ele vire prejuízo.</p></div><div class="contacts reveal"><article><small>FALE COM A ORKESTRI</small><a href="mailto:ricardo@orkestri.net">ricardo@orkestri.net</a><a href="https://orkestri.net/" target="_blank" rel="noopener noreferrer">orkestri.net</a></article></div></section>
   </main>
   <footer class="site-footer">
     <div class="footer-brand"><strong>ORKESTRI</strong><span>Inteligência para enxergar o todo</span></div>
-    <address class="footer-company"><strong>ORK IA SOLUCAO TECNOLOGIA LTDA</strong><span>CNPJ 69.175.416/0001-47 · D‑U‑N‑S 584463964</span><span>Rua Ouvidor Peleja, 298 · Vila Mariana</span><span>São Paulo/SP · CEP 04128-000</span><a href="mailto:ricardo@orkestri.net">ricardo@orkestri.net</a><a href="https://www.orkestri.net/" target="_blank" rel="noopener noreferrer">www.orkestri.net</a></address>
+    <address class="footer-company"><strong>ORK IA SOLUCAO TECNOLOGIA LTDA</strong><span>CNPJ 69.175.416/0001-47 · D‑U‑N‑S 584463964</span><span>Rua Ouvidor Peleja, 298 · Vila Mariana</span><span>São Paulo/SP · CEP 04128-000</span><a href="mailto:ricardo@orkestri.net">ricardo@orkestri.net</a><a href="https://orkestri.net/" target="_blank" rel="noopener noreferrer">orkestri.net</a></address>
     <nav class="footer-links" aria-label="Links legais"><a href="politica-de-privacidade.html">Política de Privacidade</a><a href="termos-de-uso.html">Termos de Uso</a><a href="#inicio">Voltar ao início</a></nav>
   </footer>
   <script src="script.js"></script>
   <script src="motion.js"></script>
+  <script src="banks.js"></script>
 </body>
 </html>

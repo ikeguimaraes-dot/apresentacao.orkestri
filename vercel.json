@@ -1,5 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "outputDirectory": "site/proposta-orkestri-fabio/dist",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.orkestri.net" }],
+      "destination": "https://orkestri.net/:path*",
+      "permanent": true
+    }
+  ]
 }
