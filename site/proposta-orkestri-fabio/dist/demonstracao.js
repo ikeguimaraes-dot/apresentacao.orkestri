@@ -36,6 +36,12 @@
     event.preventDefault();
     if (sending || !form.reportValidity()) return;
     if (form.elements._honey.value) return;
+    const fields = Object.fromEntries(new FormData(form));
+    const emailBody = Object.entries(fields)
+      .filter(([name]) => !name.startsWith('_'))
+      .map(([name, value]) => `${name}: ${value || 'Não informado'}`)
+      .join('\n');
+    form.querySelector('.booking-email').href = `mailto:ricardo@orkestri.net?subject=${encodeURIComponent('Pedido de demonstração — Orkestri')}&body=${encodeURIComponent(emailBody)}`;
     sending = true;
     submit.disabled = true;
     form.setAttribute('aria-busy', 'true');
@@ -43,7 +49,6 @@
     status.dataset.state = 'pending';
     status.textContent = 'Enviando seu pedido…';
     try {
-      const fields = Object.fromEntries(new FormData(form));
       const response = await fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },

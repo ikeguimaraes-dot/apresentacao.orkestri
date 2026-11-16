@@ -10,13 +10,14 @@ function setup(fetchResponse, { valid = true, honey = '' } = {}) {
   const status = { dataset: {}, focus() {} };
   const submit = { disabled: false };
   const fallback = { hidden: true };
+  const emailLink = {};
   const date = {};
   let requests = 0;
   let resets = 0;
   const form = {
     action: 'https://formsubmit.co/ricardo@orkestri.net',
     elements: { _honey: { value: honey } },
-    querySelector: selector => ({ '.booking-status': status, '[type="submit"]': submit, '.booking-fallback': fallback, '#booking-date': date })[selector],
+    querySelector: selector => ({ '.booking-status': status, '[type="submit"]': submit, '.booking-fallback': fallback, '#booking-date': date, '.booking-email': emailLink })[selector],
     addEventListener: (event, handler) => { listeners[event] = handler; },
     reportValidity: () => valid,
     setAttribute() {}, removeAttribute() {},
@@ -35,7 +36,7 @@ function setup(fetchResponse, { valid = true, honey = '' } = {}) {
     }
   };
   vm.runInNewContext(script, context);
-  return { send: () => listeners.submit({ preventDefault() {} }), status, submit, fallback, requests: () => requests, resets: () => resets };
+  return { send: () => listeners.submit({ preventDefault() {} }), status, submit, fallback, emailLink, requests: () => requests, resets: () => resets };
 }
 
 test('confirma pedido e limpa campos somente após aceitação do serviço', async () => {
@@ -52,6 +53,8 @@ test('preserva campos e mostra contato alternativo quando a rede falha', async (
   assert.equal(ui.status.dataset.state, 'error');
   assert.equal(ui.resets(), 0);
   assert.equal(ui.fallback.hidden, false);
+  assert.match(ui.emailLink.href, /^mailto:ricardo@orkestri.net\?/);
+  assert.match(decodeURIComponent(ui.emailLink.href), /email: test@example.com/);
   assert.equal(ui.submit.disabled, false);
 });
 
