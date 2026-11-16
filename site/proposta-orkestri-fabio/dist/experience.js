@@ -15,7 +15,7 @@
   const dock = document.createElement('nav');
   dock.className = 'chapter-dock';
   dock.setAttribute('aria-label', 'Navegação entre seções');
-  dock.innerHTML = '<span class="chapter-dock-label"><b>01</b><span>A Orkestri</span></span><span class="chapter-dock-progress" aria-hidden="true"><span></span></span><button type="button" aria-label="Seção anterior">↑</button><button type="button" aria-label="Próxima seção">↓</button><a class="dock-cta" href="#contato">Agendar demo ↗</a>';
+  dock.innerHTML = '<span class="chapter-dock-label"><b>01</b><span>A Orkestri</span></span><span class="chapter-dock-progress" aria-hidden="true"><span></span></span><button type="button" aria-label="Seção anterior">↑</button><button type="button" aria-label="Próxima seção">↓</button><a class="dock-cta" href="#agendar-demonstracao" data-demo-open>Agendar demo ↗</a>';
   document.body.append(dock);
   const number = dock.querySelector('b');
   const label = dock.querySelector('.chapter-dock-label > span');
