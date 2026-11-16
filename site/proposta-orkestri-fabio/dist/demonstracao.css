@@ -24,6 +24,7 @@ html:has(.demo-dialog[open]){overflow:hidden}
 .booking-status:empty{display:none}
 .booking-status[data-state=success]{padding:14px;border:1px solid #5eae8b;border-radius:9px;background:#163d36;color:#c5f4df}
 .booking-status[data-state=error]{color:#ffc3a2}
+.booking-status[data-state=unconfirmed]{padding:14px;border:1px solid #a88a4c;border-radius:9px;background:#3b3320;color:#f4dfaa}
 .booking-fallback{font-size:13px;color:#b3c4d6}
 .booking-trap{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 @media(max-width:600px){.demo-dialog{padding:30px 22px}.booking-fields{grid-template-columns:1fr;gap:15px}.booking-wide{grid-column:auto}}

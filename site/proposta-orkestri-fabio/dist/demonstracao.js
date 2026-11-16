@@ -48,23 +48,37 @@
     fallback.hidden = true;
     status.dataset.state = 'pending';
     status.textContent = 'Enviando seu pedido…';
+    const delayNotice = setTimeout(() => {
+      status.textContent = 'A confirmação está demorando um pouco. Aguarde para evitar enviar o mesmo pedido duas vezes.';
+    }, 10000);
     try {
       const response = await fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(fields),
-        signal: AbortSignal.timeout(25000)
+        signal: AbortSignal.timeout(60000)
       });
+      // A server error can happen after the email has already been delivered.
+      // Only an explicit rejection is evidence that the request was refused.
+      if ([400, 401, 403, 404, 405, 413, 422, 429].includes(response.status)) throw new Error('Submission rejected');
+      if (!response.ok) throw new Error('Confirmation unavailable');
       const result = await response.json();
-      if (!response.ok || !(result.success === true || result.success === 'true')) throw new Error('Submission rejected');
+      if (result.success === false || result.success === 'false') throw new Error('Submission rejected');
+      if (!(result.success === true || result.success === 'true')) throw new Error('Confirmation unavailable');
       status.dataset.state = 'success';
       status.textContent = 'Pedido enviado! Nossa equipe entrará em contato para confirmar a data e o horário da sua demonstração.';
       form.reset();
-    } catch {
-      status.dataset.state = 'error';
-      status.textContent = 'Não foi possível confirmar o envio. Seus dados foram mantidos: tente novamente ou entre em contato por e-mail.';
-      fallback.hidden = false;
+    } catch (error) {
+      if (error.message === 'Submission rejected') {
+        status.dataset.state = 'error';
+        status.textContent = 'O serviço não aceitou o pedido. Seus dados foram mantidos: tente novamente mais tarde ou envie pelo seu e-mail.';
+        fallback.hidden = false;
+      } else {
+        status.dataset.state = 'unconfirmed';
+        status.textContent = 'Não recebemos a confirmação do serviço, mas seu pedido pode ter sido entregue. Para evitar duplicidade, aguarde nosso contato antes de enviar novamente. Seus dados foram mantidos.';
+      }
     } finally {
+      clearTimeout(delayNotice);
       sending = false;
       submit.disabled = false;
       form.removeAttribute('aria-busy');
