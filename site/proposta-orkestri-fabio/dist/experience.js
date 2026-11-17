@@ -2,7 +2,7 @@
   const root = document.querySelector('.new-site');
   if (!root) return;
   const sections = [...root.querySelectorAll(':scope > section')];
-  const labels = ['A Orkestri', 'Sua empresa', 'Como funciona', 'Plataforma', 'Aplicativo', 'Resultados', 'Demonstração', 'Implantação', 'Ecossistema', 'Vamos conversar'];
+  const labels = ['A Orkestri', 'Demonstração', 'Sua empresa', 'Como funciona', 'Plataforma', 'Aplicativo', 'Resultados', 'Implantação', 'Ecossistema', 'Vamos conversar'];
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const fine = matchMedia('(hover: hover) and (pointer: fine)');
   sections.forEach((section, i) => {
@@ -40,8 +40,8 @@
     next.disabled = active === sections.length - 1;
     dock.style.setProperty('--journey', Math.min(1, Math.max(0, (focusLine - first.top) / (last.top + last.height - first.top))));
     if (!reduce.matches && fine.matches) {
-      const app = sections[4];
-      const position = positions[4];
+      const app = sections[5];
+      const position = positions[5];
       if (position.top < scrollY + innerHeight && position.top + position.height > scrollY) {
         app.style.setProperty('--float-y', `${Math.max(-16, Math.min(16, (position.top - scrollY) * .035))}px`);
       }
